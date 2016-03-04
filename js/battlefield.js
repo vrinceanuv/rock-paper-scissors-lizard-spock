@@ -126,8 +126,8 @@ function updateScores(finalResult) {
 
 function computerChoice() {
 	var counter = 0,
-    	keys = Object.keys(weaponsAvailable),
-    	computerWeapon = weaponsAvailable[keys[keys.length * Math.random() << 0]]
+		keys = Object.keys(weaponsAvailable),
+		computerWeapon = weaponsAvailable[keys[keys.length * Math.random() << 0]]
 
     for(var i = 0; i < weapons.length; i++) {
 		if(weapons[i].getAttribute('data-weapon') === computerWeapon) {
