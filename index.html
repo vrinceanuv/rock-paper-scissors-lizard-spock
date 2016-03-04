@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock, Paper, Scissors</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Rock-paper-scissors-lizard-Spock</h1>
+            <p class="description">
+                 This game is an expansion of the classic selection method game <span>rock-paper-scissors</span>. It operates on the same basic principle, but includes two additional weapons: the lizard (formed by the hand as a puppet-like mouth) and Spock (formed by the Star Trek Vulcan salute). This reduces the chances of a round ending in a tie.
+            </p>
+            <div class="weapons-available">
+                <p>You may choose your weapon</p>
+                <div class="choose">
+                    <img src="img/rock.png" alt="Rock" data-weapon="rock">
+                    <img src="img/paper.png" alt="Paper" data-weapon="paper">
+                    <img src="img/scissors.png" alt="Scissors" data-weapon="scissors">
+                    <img src="img/lizard.png" alt="Lizard" data-weapon="lizard">
+                    <img src="img/spock.png" alt="Spock" data-weapon="spock">
+                </div>
+            </div>
+            <div class="game-area">
+                <div class="user">
+                    Your choice:
+                    <div class="user-weapon"></div>
+                    <div class="user-score">0</div>
+                </div>
+
+                <div class="score">Are you ready?</div>
+
+                <div class="computer">
+                    Computers choice:
+                    <div class="computer-weapon"></div>
+                    <div class="computer-score">0</div>
+                </div>
+            </div>
+        </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/battlefield.js"></script>
+    </body>
+</html>
