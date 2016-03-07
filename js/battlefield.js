@@ -1,8 +1,8 @@
-var rpsls = (function () {
-    // "rock-paper-scissors-lizard-spock" game
-    // Coded by Valentin Vrinceanu
-    // Date: February 2016
+// "rock-paper-scissors-lizard-spock" game
+// Coded by Valentin Vrinceanu
+// Date: February 2016
 
+var rpsls = (function () {
 
     var weapons = document.querySelectorAll('.choose img'),
         scoreElement = document.querySelector('.score'),
@@ -30,7 +30,7 @@ var rpsls = (function () {
             'computerWin': 'You have lost'
         };
 
-    function compare(userWeapon) {
+    function compare (userWeapon) {
         computerWeapon = computerChoice();
 
         if(userWeapon === computerWeapon) {
@@ -39,67 +39,27 @@ var rpsls = (function () {
             return;
         }
 
-        if(userWeapon === weaponsAvailable.rock) {
-            compareRock();
-        }
+        switch(userWeapon) {
+            case "rock":
+                return compareWeapons(computerWeapon, weaponsAvailable.scissors, weaponsAvailable.lizard);
+             case "paper":
+                return compareWeapons(computerWeapon, weaponsAvailable.rock, weaponsAvailable.spock);
+             case "scissors":
+                return compareWeapons(computerWeapon, weaponsAvailable.paper, weaponsAvailable.lizard);
+             case "lizard":
+                return compareWeapons(computerWeapon, weaponsAvailable.paper, weaponsAvailable.spock);
+             case "spock":
+                return compareWeapons(computerWeapon, weaponsAvailable.rock, weaponsAvailable.scissors);
+         }
+    }
 
-        if(userWeapon === weaponsAvailable.paper) {
-            comparePaper();
+    function compareWeapons(computerWeapon, weaponToBeat, weaponToBeat2) {
+        if(computerWeapon === weaponToBeat || computerWeapon === weaponToBeat2) {
+            finalResult = results.userWin;
+        } else {
+            finalResult = results.computerWin;
         }
-
-        if(userWeapon === weaponsAvailable.scissors) {
-            compareScissors();
-        }
-
-        if(userWeapon === weaponsAvailable.lizard) {
-            compareLizard();
-        }
-
-        if(userWeapon === weaponsAvailable.spock) {
-            compareSpock();
-        }
-
         updateScores(finalResult);
-    }
-
-    function compareRock() {
-        if(computerWeapon === weaponsAvailable.scissors || computerWeapon === weaponsAvailable.lizard) {
-            finalResult = results.userWin;
-        } else {
-            finalResult = results.computerWin;
-        }
-    }
-
-    function comparePaper() {
-        if(computerWeapon === weaponsAvailable.rock || computerWeapon === weaponsAvailable.spock) {
-            finalResult = results.userWin;
-        } else {
-            finalResult = results.computerWin;
-        }
-    }
-
-    function compareScissors() {
-        if(computerWeapon === weaponsAvailable.paper || computerWeapon === weaponsAvailable.lizard) {
-            finalResult = results.userWin;
-        } else {
-            finalResult = results.computerWin;
-        }
-    }
-
-    function compareLizard() {
-        if(computerWeapon === weaponsAvailable.paper || computerWeapon === weaponsAvailable.spock) {
-            finalResult = results.userWin;
-        } else {
-            finalResult = results.computerWin;
-        }
-    }
-
-    function compareSpock() {
-        if(computerWeapon === weaponsAvailable.rock || computerWeapon === weaponsAvailable.scissors) {
-            finalResult = results.userWin;
-        } else {
-            finalResult = results.computerWin;
-        }
     }
 
     function updateScores(finalResult) {
